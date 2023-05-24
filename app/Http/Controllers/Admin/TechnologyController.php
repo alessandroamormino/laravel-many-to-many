@@ -77,7 +77,8 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
-        //
+      // passo alla rotta edit (modifica della singola tipologia) il record di riferimento
+      return view('admin.technologies.edit', compact('technology'));
     }
 
     /**
@@ -89,7 +90,18 @@ class TechnologyController extends Controller
      */
     public function update(Request $request, Technology $technology)
     {
-        //
+      //richiamo la funzione per validare i dati e invirli al db
+      $this->validation($request);
+      // memorizzo i dati del form
+      $formData = $request->all();
+      // aggiorno i dati 
+      $formData['slug'] = Str::slug($formData['name'], '-');
+      $technology->update($formData);
+      // salvo il record
+      $technology->save();
+
+      // faccio il redirect alla show relativa al progetto modificato
+      return redirect()->route('admin.technologies.show', $technology);
     }
 
     /**
@@ -111,7 +123,7 @@ class TechnologyController extends Controller
       // richiamo il Validator
       $validator = Validator::make($formData, [
           // inserisco le mie regole
-          'name' => 'unique:App\Models\Type,name|required|max:255|min:5',
+          'name' => 'unique:App\Models\Type,name|required|max:255|min:1',
           // 'color' => 'required|regex:/^#([a-f0-9]{6}|[a-f0-9]{3})$/i',
       ], [
           // inserisco i messaggi personalizzati per ogni tecnologia di errore per ogni campo
