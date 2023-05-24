@@ -12,14 +12,23 @@
   <div class="mt-2">Link immagine: {{$project->thumb}}</div>
   <div class="mt-2">Linguaggi: {{$project->languages}}</div>
   <div class="mt-2">Repo: {{$project->repo}}</div>
+  <div class="d-flex mt-2">
+    Tecnologie utilizzate: 
+    @foreach($project->technologies as $tech)
+      <span class="badge rounded-pill mx-1" style="background-color: {{$tech->color}}">{{$tech->name}}</span>
+    @endforeach
+  </div>
 
-  {{-- Aggiungo un bottone per modificare il progetto --}}
-  <button class="btn"><a href="{{route('admin.projects.edit', $project)}}">Modifica Progetto</a></button>
 
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-danger rounded-0" data-bs-toggle="modal" data-bs-target="#deleteProject">
-    Cancella Progetto
-  </button>
+  <div class="button-section">
+    {{-- Aggiungo un bottone per modificare il progetto --}}
+    <button class="btn"><a href="{{route('admin.projects.edit', $project)}}">Modifica Progetto</a></button>
+  
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-danger rounded-0" data-bs-toggle="modal" data-bs-target="#deleteProject">
+      Cancella Progetto
+    </button>
+  </div>
 
   <!-- Modal -->
   <div class="modal fade" id="deleteProject" tabindex="-1" aria-labelledby="deleteProjectLabel" aria-hidden="true">
@@ -46,7 +55,7 @@
   </div>
 
   <div class="mt-5">
-    <a href="{{route('admin.projects.index')}}">Torna all'elenco dei prodotti</a>
+    <a href="{{route('admin.projects.index')}}">Torna all'elenco dei progetti</a>
   </div>
   
 </div>

@@ -68,7 +68,7 @@
     </div>
 
     {{-- tecnologie utilizzate --}}
-    <div class="row mb-3">
+    <div class="row mb-3 form-group">
       <h6>Tecnologie</h6>
 
       @foreach($techs as $tech)

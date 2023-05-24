@@ -101,8 +101,10 @@ class ProjectController extends Controller
         //per fare la scelta della tipologia in fase di modifica del singolo progetto, devo passare alla rotta
         // tutte le possibili tipologie che ho nella tabella Type
         $types = Type::all();
+        // passo anche l'elenco di tutte le tecnologie utilizzate
+        $techs = Technology::all();
         // passo alla rotta edit sia il singolo progetto che tutte le tipologie disponibili per fare la scelta
-        return view('admin.projects.edit', compact('project', 'types'));
+        return view('admin.projects.edit', compact('project', 'types', 'techs'));
     }
 
     /**
@@ -125,6 +127,13 @@ class ProjectController extends Controller
         $project->update($formData);
         // salvo il record
         $project->save();
+
+        // controllo se siste l'array delle tecnologie dal form
+        if(array_key_exists('techArray', $formData)){
+            $project->technologies()->sync($formData['techArray']);
+        } else {
+            $project->technologies()->detach();
+        }
 
         // faccio il redirect alla show relativa al progetto modificato
         return redirect()->route('admin.projects.show', $project);
