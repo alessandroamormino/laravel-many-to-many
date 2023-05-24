@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TechnologyController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\ProfileController;
@@ -38,6 +39,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     // richiamo il typecontroller 
     Route::resource('types', TypeController::class)->parameters(['types'=>'type:slug']);
+
+    // richiamo il technology controller
+    Route::resource('technologies', TechnologyController::class)->parameters(['technologies'=>'technology:slug']);
 
     // richiamo la pagina dashboard della cartella admin
     Route::get('/', [DashboardController::class, 'home'])->name('dashboard.home');

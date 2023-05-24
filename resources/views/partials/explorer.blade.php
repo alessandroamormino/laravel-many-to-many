@@ -9,6 +9,9 @@
       <div class="types">
         <a href="{{route('admin.types.index')}}">types</a>
       </div>
+      <div class="technologies">
+        <a href="{{route('admin.technologies.index')}}">technologies</a>
+      </div>
     </div>
   </div>
 </div>
