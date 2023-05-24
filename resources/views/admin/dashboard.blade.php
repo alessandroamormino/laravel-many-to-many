@@ -32,7 +32,7 @@
   <a href="{{route('admin.technologies.index')}}" class="card-section">
     <div class="_card">
         <h3>Tecnologie</h3>
-        <img src="{{Vite::asset('resources/img/types.png')}}" alt="Tech">
+        <img src="{{Vite::asset('resources/img/tech.png')}}" alt="Tech">
         <div class="text">
             In questa sezione vengono riportate tutte le tecnologie usate nei progetti.
             <br>
