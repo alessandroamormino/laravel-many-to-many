@@ -49,6 +49,8 @@
       @enderror
     </div>
 
+    {{-- tipologia di progetto --}}
+
     <div class="row mb-3">
       <label for="type_id">Tipologia</label>
       <select name="type_id" class="form-select @error('type_id') is-invalid @enderror" type="text" id="type_id" value="{{old('type_id')}}">
@@ -63,6 +65,19 @@
           {{$message}}
         </div>
       @enderror
+    </div>
+
+    {{-- tecnologie utilizzate --}}
+    <div class="row mb-3">
+      <h6>Tecnologie</h6>
+
+      @foreach($techs as $tech)
+        <div class="form-check">
+          <input type="checkbox" id="tech-{{$tech->id}}" name="techArray[]" value="{{$tech->id}}">
+          <label for="tech-{{$tech->id}}">{{$tech->name}}</label>
+        </div>
+      @endforeach
+
     </div>
   
     <div class="row mb-3">

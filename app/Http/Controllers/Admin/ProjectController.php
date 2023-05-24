@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -32,7 +33,10 @@ class ProjectController extends Controller
         //per fare la scelta della tipologia in fase di creazione devo passare alla rotta
         // tutte le possibili tipologie che ho nella tabella Type
         $types = Type::all();
-        return view('admin.projects.create', compact('types'));
+        // passo anche l'elenco di tutte le tecnologie utilizzate
+        $techs = Technology::all();
+
+        return view('admin.projects.create', compact('types', 'techs'));
     }
 
     /**
@@ -63,6 +67,12 @@ class ProjectController extends Controller
         $newProject->repo = $formData['repo'];
         // salvo il record
         $newProject->save();
+
+        // controllo se mi sta arrivando dal form l'array con le tecnologie utilizzate
+        if(array_key_exists('techArray', $formData)){
+            // popolo la tabella ponte con l'associazione progetto-tecnologia passato dal form
+            $newProject->technologies()->attach($formData['techArray']);
+        }
 
         // faccio un redirect alla pagina di show del nuovo record creato, passandogli il record come parametro
         return redirect()->route('admin.projects.show', $newProject);
