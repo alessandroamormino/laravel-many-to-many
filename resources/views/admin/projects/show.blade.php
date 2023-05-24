@@ -10,7 +10,7 @@
     Descrizione: {{$project->content}}
   </p>
   <div class="mt-2">Link immagine: {{$project->thumb}}</div>
-  <div class="mt-2">Linguaggi: {{$project->languages}}</div>
+  {{-- <div class="mt-2">Linguaggi: {{$project->languages}}</div> --}}
   <div class="mt-2">Repo: {{$project->repo}}</div>
   <div class="d-flex mt-2">
     Tecnologie utilizzate: 

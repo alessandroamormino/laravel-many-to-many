@@ -61,7 +61,7 @@ class ProjectController extends Controller
         // lo slug non viene richiesto in input ma viene calcolato sulla base del titolo che passa dal form
         $newProject->slug = Str::slug($formData['title'], '-');
         $newProject->thumb = $formData['thumb'];
-        $newProject->languages = $formData['languages'];
+        // $newProject->languages = $formData['languages'];
         // gli passo anche il type_id che proviene dalla select dentro al form 
         $newProject->type_id = $formData['type_id'];
         $newProject->repo = $formData['repo'];
@@ -166,7 +166,7 @@ class ProjectController extends Controller
             'content' => 'required|min:10',
             'thumb' => 'required',    
             'type_id' => 'nullable|exists:types,id',
-            'languages' => 'required|min:2',
+            // 'languages' => 'required|min:2',
             'repo' => 'required',
         ], [
             // inserisco i messaggi personalizzati per ogni tipologia di errore per ogni campo
@@ -177,8 +177,8 @@ class ProjectController extends Controller
             'content.min' => "La descrizione dev'essere di almeno :min caratteri",
             'thumb.required' => "E' necessario inserire un'immagine di copertina",
             'type_id.exists' => 'La tipologia deve essere presente',
-            'languages.required' => "E' necessario inserire almeno un linguaggio utilizzato",
-            'languages.min' => "Devi inserire almeno 2 caratteri",
+            // 'languages.required' => "E' necessario inserire almeno un linguaggio utilizzato",
+            // 'languages.min' => "Devi inserire almeno 2 caratteri",
             'repo.required' => "E' necessario inserire la repository",
 
         ])->validate();

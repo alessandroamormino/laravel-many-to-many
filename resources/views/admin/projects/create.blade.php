@@ -38,16 +38,16 @@
       @enderror
     </div>
   
-    <div class="row mb-3">
+    {{-- <div class="row mb-3">
       <label for="languages">Linguaggi</label>
       <input class="form-control @error('languages') is-invalid @enderror" type="text" id="languages" name="languages" value="{{old('languages')}}">
-      {{-- espongo messaggio di errore --}}
+
       @error('languages')
         <div class="invalid-feedback">
           {{$message}}
         </div>
       @enderror
-    </div>
+    </div> --}}
 
     {{-- tipologia di progetto --}}
 
