@@ -16,7 +16,7 @@ body{
 
 .explorer{
   padding: 1em;
-  width: 15vw;
+  width: 10vw;
   color: #fff;
   background-color: #1A1D2A;
   .files{
@@ -60,6 +60,12 @@ a{
   }
   .text{
     padding: 1em;
+  }
+}
+
+main.admin{
+  .table{
+    font-size: .8em;
   }
 }
 
@@ -107,11 +113,11 @@ main{
   }
   color: #fff;
   // tolgo la dimensione della sidebar dalla larghezza del main
-  width: calc(100% - 70px - 15vw);
+  width: calc(100% - 70px - 10vw);
   padding: 2em;
   overflow: auto;
   .container-centered{
-    width: calc(100% - 70px - 2em - 15vw);
+    width: calc(100% - 70px - 2em - 10vw);
     display: flex;
     align-items: center;
     justify-content: space-between;
