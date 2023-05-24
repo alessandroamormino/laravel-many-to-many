@@ -112,7 +112,11 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
-        //
+      //cancello la tecnologia
+      $technology->delete();
+
+      //faccil il redirect alla pagina con tutti i progetti 
+      return redirect()->route('admin.technologies.index');
     }
 
     // creo una funzione che mi gestisca gli errori nei form

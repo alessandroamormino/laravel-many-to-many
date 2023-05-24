@@ -34,12 +34,12 @@
       <button class="btn"><a href="{{route('admin.technologies.edit', $technology)}}">Modifica Tecnologia</a></button>
     
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-danger rounded-0" data-bs-toggle="modal" data-bs-target="#deleteType">
+      <button type="button" class="btn btn-danger rounded-0" data-bs-toggle="modal" data-bs-target="#deleteTech">
         Cancella Tipologia
       </button>
     
       <!-- Modal -->
-      <div class="modal fade" id="deleteType" tabindex="-1" aria-labelledby="deleteTypeLabel" aria-hidden="true">
+      <div class="modal fade" id="deleteTech" tabindex="-1" aria-labelledby="deleteTechLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
