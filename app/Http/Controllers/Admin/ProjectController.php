@@ -166,6 +166,7 @@ class ProjectController extends Controller
             'content' => 'required|min:10',
             'thumb' => 'required',    
             'type_id' => 'nullable|exists:types,id',
+            // 'techArray' => 'exists:technologies, id',
             // 'languages' => 'required|min:2',
             'repo' => 'required',
         ], [
@@ -177,6 +178,7 @@ class ProjectController extends Controller
             'content.min' => "La descrizione dev'essere di almeno :min caratteri",
             'thumb.required' => "E' necessario inserire un'immagine di copertina",
             'type_id.exists' => 'La tipologia deve essere presente',
+            // 'techArray.exists' => 'La tegnologia deve essere presente',
             // 'languages.required' => "E' necessario inserire almeno un linguaggio utilizzato",
             // 'languages.min' => "Devi inserire almeno 2 caratteri",
             'repo.required' => "E' necessario inserire la repository",
