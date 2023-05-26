@@ -77,9 +77,10 @@ a{
 
   overflow: hidden;
 
-  transition: transform .4s ease;
+  transition: all .2s ease;
   &:hover{
-    transform: scale(1.02);
+    // transform: scale(1.02);
+    box-shadow: 10px 10px 10px rgba(0,0,0,.2)
   }
   img{
     width: 100%;
