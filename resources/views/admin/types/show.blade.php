@@ -9,10 +9,10 @@
   <p>
     Descrizione: {{$type->description}}
   </p> --}}
-  <h1>Tutti i progetti della tipologia {{$type->name}}</h1>
+  <h1>Tutti i progetti della tipologia: {{$type->name}}</h1>
 
   @if(count($type->projects) > 0)
-    <table class="table table-dark">
+    {{-- <table class="table table-dark">
       <thead>
         <th>Titolo</th>
         <th>Slug</th>
@@ -29,7 +29,34 @@
           </tr>
         @endforeach
       </tbody>
-    </table>
+    </table> --}}
+
+    <div class="cards">
+      @foreach($type->projects as $project)
+        <div class="card-projects">
+          <img src="{{asset('storage/' . $project->thumb)}}" alt="{{$project->title}} image">
+          <div class="content">
+            <h1>{{$project->title}}</h1>
+            <h6>Tipologia: {{$project->type?->name}}</h6>
+            <hr>
+            <p>
+              Descrizione: {{$project->content}}
+            </p>
+            <div class="d-flex mt-2"> 
+              @foreach($project->technologies as $tech)
+                <span class="badge rounded-pill mx-1" style="border: 1px solid {{$tech->color}}">{{$tech->name}}</span>
+              @endforeach
+            </div>
+            <div class="links">
+              <a href="{{$project->repo}}">Source Code</a>
+              <a href="{{route('admin.projects.show', $project)}}">Details</a>
+            </div>
+          </div>
+        </div>
+      @endforeach
+    </div>
+
+
   @else
     <em>Nessun progetto per questa tipologia</em>
   @endif
