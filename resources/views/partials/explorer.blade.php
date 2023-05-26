@@ -3,6 +3,9 @@
   <div>
     <span>Portfolio</span>
     <div class="files">
+      <div class="dashboard">
+        <a href="{{route('admin.dashboard.home')}}">dashboard</a>
+      </div>
       <div class="projects">
         <a href="{{route('admin.projects.index')}}">projects</a>
       </div>
