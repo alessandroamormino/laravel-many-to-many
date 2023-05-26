@@ -67,6 +67,38 @@ a{
   }
 }
 
+.card-projects{
+  display: flex;
+  flex-flow: column nowrap;
+  // flex
+  width: 500px;
+  border-radius: 10px;
+  background-color: #1B1D2A;
+
+  overflow: hidden;
+  img{
+    width: 100%;
+  }
+  .content{
+    padding: 1em;
+    .link{
+      margin-top: 1em;
+      a:hover{
+        text-decoration: underline;
+      }
+    }
+    .badge{
+      cursor: pointer;
+      transition: all .2s ease;
+      &:hover{
+        background-color: #5c5c5cbb;
+      }
+    }
+  }
+
+
+}
+
 // Active links in nav
 ._active svg{
   fill: #fff;

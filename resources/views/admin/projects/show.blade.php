@@ -3,21 +3,27 @@
 @section('content')
 
 <div class="main">
-  <h1>{{$project->title}}</h1>
-  <h6>Tipologia: {{$project->type?->name}}</h6>
-  <hr>
-  <p>
-    Descrizione: {{$project->content}}
-  </p>
-  <img src="{{asset('storage/' . $project->thumb)}}" alt="{{$project->title}} image">
-  <div class="mt-2">Repo: {{$project->repo}}</div>
-  <div class="d-flex mt-2">
-    Tecnologie utilizzate: 
-    @foreach($project->technologies as $tech)
-      <span class="badge rounded-pill mx-1" style="background-color: {{$tech->color}}">{{$tech->name}}</span>
-    @endforeach
+  <div class="card-projects">
+    <img src="{{asset('storage/' . $project->thumb)}}" alt="{{$project->title}} image">
+    <div class="content">
+      <h1>{{$project->title}}</h1>
+      <h6>Tipologia: {{$project->type?->name}}</h6>
+      <hr>
+      <p>
+        Descrizione: {{$project->content}}
+      </p>
+      <div class="d-flex mt-2"> 
+        @foreach($project->technologies as $tech)
+          <span class="badge rounded-pill mx-1" style="border: 1px solid {{$tech->color}}">{{$tech->name}}</span>
+        @endforeach
+      </div>
+      <div class="link">
+        <a href="{{$project->repo}}">Source Code</a>
+      </div>
+    </div>
   </div>
 
+  {{-- Sezione bottoni --}}
 
   <div class="button-section">
     {{-- Aggiungo un bottone per modificare il progetto --}}
