@@ -67,12 +67,6 @@ a{
   }
 }
 
-main.admin{
-  .table{
-    font-size: .8em;
-  }
-}
-
 // Active links in nav
 ._active svg{
   fill: #fff;
@@ -222,8 +216,8 @@ main{
 // Admin page
 main.admin{
   color: white;
-  table{
-    font-size: .9em;
+  .table{
+    font-size: .8em;
   }
   .modal{
     color: #000;
@@ -234,6 +228,13 @@ main.admin{
     align-items: center;
     gap: 5em;
     padding: 3em;
+  }
+  .main{
+    img{
+      width: 500px;
+      height: 300px;
+      object-fit: cover;
+    }
   }
 }
 

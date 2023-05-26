@@ -3,7 +3,7 @@
 @section('content')
 <h3>Aggiungi un Progetto</h3>
 <div class="container p-5">
-  <form action="{{route('admin.projects.store')}}" method="POST">
+  <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
   
     <div class="row mb-3">
@@ -28,8 +28,8 @@
     </div>
   
     <div class="row mb-3">
-      <label for="thumb">Immagine</label>
-      <input class="form-control @error('thumb') is-invalid @enderror" type="text" id="thumb" name="thumb" value="{{old('thumb')}}">
+      <label for="thumb">Immagine di copertina</label>
+      <input class="form-control @error('thumb') is-invalid @enderror" type="file" id="thumb" name="thumb">
       {{-- espongo messaggio di errore --}}
       @error('thumb')
         <div class="invalid-feedback">
@@ -73,7 +73,6 @@
 
       @foreach($technologies as $tech)
         <div class="form-check">
-          {{-- <input type="checkbox" id="tech-{{$tech->id}}" name="techArray[]" value="{{$tech->id}}" @checked(in_array($tech->id, old('techArray', [])))> --}}
           <input type="checkbox" id="tech-{{$tech->id}}" name="technologies[]" value="{{$tech->id}}" @checked(in_array($tech->id, old('technologies', [])))>
           <label for="tech-{{$tech->id}}">{{$tech->name}}</label>
         </div>

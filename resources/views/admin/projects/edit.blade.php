@@ -3,7 +3,7 @@
 @section('content')
 <main class="create">
   <div class="container">
-    <form action="{{route('admin.projects.update', $project)}}" method="POST">
+    <form action="{{route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data">
       @csrf
 
       {{-- inserisco il metodo PUT --}}
@@ -31,8 +31,8 @@
     </div>
   
     <div class="row mb-3">
-      <label for="thumb">Immagine</label>
-      <input class="form-control @error('thumb') is-invalid @enderror" type="text" id="thumb" name="thumb" value="{{old('thumb') ?? $project->thumb}}">
+      <label for="thumb">Immagine di copertina</label>
+      <input class="form-control @error('thumb') is-invalid @enderror" type="file" id="thumb" name="thumb">
       {{-- espongo messaggio di errore --}}
       @error('thumb')
         <div class="invalid-feedback">

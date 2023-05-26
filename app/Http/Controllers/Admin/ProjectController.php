@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -47,13 +48,24 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        // richiamo la funzione per validare i dati prima di inviarli al db
-        $this->validation($request);
         // leggo tutti i dati del form presenti nella request e mi creo un oggetto
         $formData = $request->all();
+
+        // richiamo la funzione per validare i dati prima di inviarli al db
+        $this->validation($request);
         
         // creo un nuovo record del modello Project
         $newProject = new Project();
+
+        // Controllo che sia presente un'immagine
+        if($request->hasFile('thumb')){
+            // creo la cartella delle immagini dentro lo storage
+            $path = Storage::put('project_images', $request->thumb);
+
+            // setto il campo thumb con solo la path dell'immagine
+            $formData['thumb'] = $path;
+        }
+
         // popolo TUTTI i campi presenti in Project il nuovo record 
         // con i dati presenti nell'oggetto formData
         $newProject->title = $formData['title'];
@@ -117,10 +129,21 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //richiamo la funzione per validare i dati e invirli al db
-        $this->validation($request);
         // memorizzo i dati del form
         $formData = $request->all();
+        //richiamo la funzione per validare i dati e invirli al db
+        $this->validation($request);
+
+        if($request->hasFile('thumb')){
+            // se il progetto ha già un'immagine allora la elimino
+            Storage::delete($project->thumb);
+        }
+
+        // salvo la nuova immagine di copertina
+        $path = Storage::put('project_images', $request->thumb);
+        // modifico il campo thumb in modo che contenga solo la path
+        $formData['thumb'] = $path;
+
         // aggiorno i dati con la proprietà fillable definita nel Model
         // tranne per lo slug che creerò sulla base del titolo del progetto
         $formData['slug'] = Str::slug($formData['title'], '-');
@@ -148,6 +171,11 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        // controllo se il progetto ha un'immagine e nel caso la elimino dal mio storage
+        if($project->thumb){
+            Storage::delete($project->thumb);
+        }
+
         //cancello il progetto
         $project->delete();
 
@@ -165,9 +193,9 @@ class ProjectController extends Controller
             // inserisco le mie regole
             'title' => 'required|max:255|min:5',
             'content' => 'required|min:10',
-            'thumb' => 'required',    
+            'thumb' => 'nullable|image|max:4096',    
             'type_id' => 'nullable|exists:types,id',
-            // 'technologies' => 'nullable|exists:technologies, id',
+            // 'technologies' => 'exists:technologies, id',
             // 'languages' => 'required|min:2',
             'repo' => 'required',
         ], [
@@ -177,8 +205,10 @@ class ProjectController extends Controller
             'title.min' => "Il titolo dev'essere di almeno :min caratteri",
             'content.required' => "E' necessario inserire la descrizione",
             'content.min' => "La descrizione dev'essere di almeno :min caratteri",
-            'thumb.required' => "E' necessario inserire un'immagine di copertina",
-            'type_id.exists' => 'La tipologia deve essere presente',
+            // 'thumb.required' => "E' necessario inserire un'immagine di copertina",
+            'thumb.image' => "Il file inserito dev'essere un'immagine.",
+            'thumb.max' => "La dimensione dell'immagine è troppo grande. ",
+            // 'type_id.exists' => 'La tipologia deve essere presente',
             // 'technologies.exists' => 'La tegnologia deve essere presente',
             // 'languages.required' => "E' necessario inserire almeno un linguaggio utilizzato",
             // 'languages.min' => "Devi inserire almeno 2 caratteri",

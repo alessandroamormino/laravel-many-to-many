@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title', 200)->unique();
             $table->text('content');
             $table->string('slug', 200);
-            $table->text('thumb');
+            $table->text('thumb')->nullable();
             $table->string('languages')->nullable();
             $table->string('repo');
             $table->timestamps();

@@ -9,8 +9,7 @@
   <p>
     Descrizione: {{$project->content}}
   </p>
-  <div class="mt-2">Link immagine: {{$project->thumb}}</div>
-  {{-- <div class="mt-2">Linguaggi: {{$project->languages}}</div> --}}
+  <img src="{{asset('storage/' . $project->thumb)}}" alt="{{$project->title}} image">
   <div class="mt-2">Repo: {{$project->repo}}</div>
   <div class="d-flex mt-2">
     Tecnologie utilizzate: 
@@ -22,10 +21,10 @@
 
   <div class="button-section">
     {{-- Aggiungo un bottone per modificare il progetto --}}
-    <button class="btn"><a href="{{route('admin.projects.edit', $project)}}">Modifica Progetto</a></button>
+    <button class="btn btn-secondary"><a href="{{route('admin.projects.edit', $project)}}">Modifica Progetto</a></button>
   
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-danger rounded-0" data-bs-toggle="modal" data-bs-target="#deleteProject">
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteProject">
       Cancella Progetto
     </button>
   </div>
