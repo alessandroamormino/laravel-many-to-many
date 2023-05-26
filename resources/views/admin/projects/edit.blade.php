@@ -41,16 +41,16 @@
       @enderror
     </div>
   
-    <div class="row mb-3">
+    {{-- <div class="row mb-3">
       <label for="languages">Linguaggi</label>
       <input class="form-control @error('languages') is-invalid @enderror" type="text" id="languages" name="languages" value="{{old('languages') ?? $project->languages}}">
-      {{-- espongo messaggio di errore --}}
+
       @error('languages')
         <div class="invalid-feedback">
           {{$message}}
         </div>
       @enderror
-    </div>
+    </div> --}}
 
     {{-- tipologia --}}
 
@@ -74,9 +74,9 @@
     <div class="row mb-3 form-group">
       <h6>Tecnologie</h6>
 
-      @foreach($techs as $tech)
+      @foreach($technologies as $tech)
         <div class="form-check">
-          <input type="checkbox" id="tech-{{$tech->id}}" name="techArray[]" value="{{$tech->id}}" @checked($project->technologies->contains($tech))>
+          <input type="checkbox" id="tech-{{$tech->id}}" name="technologies[]" value="{{$tech->id}}" @checked($project->technologies->contains($tech))>
           <label for="tech-{{$tech->id}}">{{$tech->name}}</label>
         </div>
       @endforeach

@@ -34,9 +34,9 @@ class ProjectController extends Controller
         // tutte le possibili tipologie che ho nella tabella Type
         $types = Type::all();
         // passo anche l'elenco di tutte le tecnologie utilizzate
-        $techs = Technology::all();
+        $technologies = Technology::all();
 
-        return view('admin.projects.create', compact('types', 'techs'));
+        return view('admin.projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -49,9 +49,9 @@ class ProjectController extends Controller
     {
         // richiamo la funzione per validare i dati prima di inviarli al db
         $this->validation($request);
-
         // leggo tutti i dati del form presenti nella request e mi creo un oggetto
         $formData = $request->all();
+        
         // creo un nuovo record del modello Project
         $newProject = new Project();
         // popolo TUTTI i campi presenti in Project il nuovo record 
@@ -65,13 +65,14 @@ class ProjectController extends Controller
         // gli passo anche il type_id che proviene dalla select dentro al form 
         $newProject->type_id = $formData['type_id'];
         $newProject->repo = $formData['repo'];
+
         // salvo il record
         $newProject->save();
 
         // controllo se mi sta arrivando dal form l'array con le tecnologie utilizzate
-        if(array_key_exists('techArray', $formData)){
+        if(array_key_exists('technologies', $formData)){
             // popolo la tabella ponte con l'associazione progetto-tecnologia passato dal form
-            $newProject->technologies()->attach($formData['techArray']);
+            $newProject->technologies()->attach($formData['technologies']);
         }
 
         // faccio un redirect alla pagina di show del nuovo record creato, passandogli il record come parametro
@@ -102,9 +103,9 @@ class ProjectController extends Controller
         // tutte le possibili tipologie che ho nella tabella Type
         $types = Type::all();
         // passo anche l'elenco di tutte le tecnologie utilizzate
-        $techs = Technology::all();
+        $technologies = Technology::all();
         // passo alla rotta edit sia il singolo progetto che tutte le tipologie disponibili per fare la scelta
-        return view('admin.projects.edit', compact('project', 'types', 'techs'));
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -129,8 +130,8 @@ class ProjectController extends Controller
         $project->save();
 
         // controllo se siste l'array delle tecnologie dal form
-        if(array_key_exists('techArray', $formData)){
-            $project->technologies()->sync($formData['techArray']);
+        if(array_key_exists('technologies', $formData)){
+            $project->technologies()->sync($formData['technologies']);
         } else {
             $project->technologies()->detach();
         }
@@ -166,7 +167,7 @@ class ProjectController extends Controller
             'content' => 'required|min:10',
             'thumb' => 'required',    
             'type_id' => 'nullable|exists:types,id',
-            // 'techArray' => 'exists:technologies, id',
+            // 'technologies' => 'nullable|exists:technologies, id',
             // 'languages' => 'required|min:2',
             'repo' => 'required',
         ], [
@@ -178,7 +179,7 @@ class ProjectController extends Controller
             'content.min' => "La descrizione dev'essere di almeno :min caratteri",
             'thumb.required' => "E' necessario inserire un'immagine di copertina",
             'type_id.exists' => 'La tipologia deve essere presente',
-            // 'techArray.exists' => 'La tegnologia deve essere presente',
+            // 'technologies.exists' => 'La tegnologia deve essere presente',
             // 'languages.required' => "E' necessario inserire almeno un linguaggio utilizzato",
             // 'languages.min' => "Devi inserire almeno 2 caratteri",
             'repo.required' => "E' necessario inserire la repository",
