@@ -4,13 +4,12 @@
 
 <h3>Tutti i progetti</h3>
 
-<table class="table table-dark ">
+<table class="table table-dark table-hover">
   <thead>
     <th>Titolo</th>
-    <th>Contenuto</th>
+    <th>Descrizione</th>
     <th>Slug</th>
     <th>Immagine</th>
-    <th>Linguaggi</th>
     <th>Tipologia</th>
     <th>Tecnologie</th>
     <th>Repo</th>
@@ -21,11 +20,10 @@
 
     @foreach($projects as $project)
     <tr>
-      <td>{{$project->title}}</td>
+      <td class="colored">{{$project->title}}</td>
       <td>{{$project->content}}</td>
       <td>{{$project->slug}}</td>
       <td>{{$project->thumb}}</td>
-      <td>{{$project->languages}}</td>
       <td>{{$project->type?->name}}</td>
       <td>
         @php
@@ -37,7 +35,7 @@
         @endphp
       </td>
       <td>{{$project->repo}}</td>
-      <td><a href="{{route('admin.projects.show', $project->slug)}}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+      <td class="colored"><a href="{{route('admin.projects.show', $project->slug)}}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
     </tr>
     @endforeach
 

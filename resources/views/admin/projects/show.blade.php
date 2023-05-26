@@ -3,6 +3,8 @@
 @section('content')
 
 <div class="main">
+  <h1>Project: {{$project->title}}</h1>
+  <hr>
   <div class="card-projects">
     <img src="{{asset('storage/' . $project->thumb)}}" alt="{{$project->title}} image">
     <div class="content">

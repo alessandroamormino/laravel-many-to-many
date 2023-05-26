@@ -4,7 +4,7 @@
 
 <h3>Tutte le tipologie</h3>
 
-<table class="table table-dark">
+<table class="table table-dark table-hover">
   <thead>
     <th>Nome</th>
     <th>Slug</th>
@@ -17,11 +17,11 @@
 
     @foreach($types as $type)
     <tr>
-      <td>{{$type->name}}</td>
+      <td class="colored">{{$type->name}}</td>
       <td>{{$type->slug}}</td>
       <td>{{$type->description}}</td>
       <td>{{count($type->projects)}}</td>
-      <td><a href="{{route('admin.types.show', $type->slug)}}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+      <td class="colored"><a href="{{route('admin.types.show', $type->slug)}}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
     </tr>
     @endforeach
 

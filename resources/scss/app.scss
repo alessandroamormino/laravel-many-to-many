@@ -266,6 +266,13 @@ main.admin{
   color: white;
   .table{
     font-size: .8em;
+    td{
+      padding: .5em;
+      vertical-align: middle;
+      &.colored, &.colored i{
+        color: #80CBC4;
+      }
+    }
   }
   .modal{
     color: #000;

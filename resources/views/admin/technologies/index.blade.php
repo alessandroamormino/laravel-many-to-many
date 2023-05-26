@@ -4,7 +4,7 @@
 
 <h3>Tutte le tecnologie</h3>
 
-<table class="table table-dark ">
+<table class="table table-dark table-hover">
   <thead>
     <th>Nome</th>
     <th>Colore</th>
@@ -17,13 +17,13 @@
 
     @foreach($technologies as $tech)
     <tr>
-      <td>{{$tech->name}}</td>
+      <td class="colored">{{$tech->name}}</td>
       <td>
-        <span style="background-color: {{$tech->color}}">{{$tech->color}}</span>
+        <span style="background-color: {{$tech->color}}; padding: .2em; border-radius: 5px;">{{$tech->color}}</span>
       </td>
       <td>{{$tech->slug}}</td>
       <td>{{count($tech->projects)}}</td>
-      <td><a href="{{route('admin.technologies.show', $tech)}}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+      <td class="colored"><a href="{{route('admin.technologies.show', $tech)}}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
     </tr>
     @endforeach
 
