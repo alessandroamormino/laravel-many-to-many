@@ -9,7 +9,7 @@
   <p>
     Descrizione: {{$type->description}}
   </p> --}}
-  <h1>Tutti i progetti della tipologia: {{$type->name}}</h1>
+  <h1>Tutti i progetti della tipologia: "{{$type->name}}"</h1>
 
   @if(count($type->projects) > 0)
     {{-- <table class="table table-dark">

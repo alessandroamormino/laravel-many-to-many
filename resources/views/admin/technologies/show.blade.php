@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="main">
-  <h1>Tutti i progetti della tecnologia {{$technology->name}}</h1>
+  <h1>Tutti i progetti realizzati con: "{{$technology->name}}"</h1>
 
   @if(count($technology->projects) > 0)
     <table class="table table-dark">
