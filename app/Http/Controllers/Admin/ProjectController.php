@@ -196,7 +196,6 @@ class ProjectController extends Controller
             'thumb' => 'nullable|image|max:4096',    
             'type_id' => 'nullable|exists:types,id',
             'technologies' => 'exists:technologies,id',
-            // 'languages' => 'required|min:2',
             'repo' => 'required',
         ], [
             // inserisco i messaggi personalizzati per ogni tipologia di errore per ogni campo
@@ -205,13 +204,10 @@ class ProjectController extends Controller
             'title.min' => "Il titolo dev'essere di almeno :min caratteri",
             'content.required' => "E' necessario inserire la descrizione",
             'content.min' => "La descrizione dev'essere di almeno :min caratteri",
-            // 'thumb.required' => "E' necessario inserire un'immagine di copertina",
             'thumb.image' => "Il file inserito dev'essere un'immagine.",
             'thumb.max' => "La dimensione dell'immagine è troppo grande. ",
             // 'type_id.exists' => 'La tipologia deve essere presente',
-            // 'technologies.exists' => 'La tegnologia deve essere presente',
-            // 'languages.required' => "E' necessario inserire almeno un linguaggio utilizzato",
-            // 'languages.min' => "Devi inserire almeno 2 caratteri",
+            'technologies.exists' => 'La tegnologia deve essere presente',
             'repo.required' => "E' necessario inserire la repository",
 
         ])->validate();
