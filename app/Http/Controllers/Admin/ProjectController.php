@@ -149,8 +149,6 @@ class ProjectController extends Controller
         $formData['slug'] = Str::slug($formData['title'], '-');
         // funzione update per aggiornare i dati con i nuovi presenti nel formData (quindi dal form)
         $project->update($formData);
-        // salvo il record
-        $project->save();
 
         // controllo se siste l'array delle tecnologie dal form
         if(array_key_exists('technologies', $formData)){
