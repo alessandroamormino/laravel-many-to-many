@@ -85,6 +85,13 @@
         </div>
       @endforeach
 
+      {{-- espongo messaggio di errore --}}
+      @error('technologies')
+        <div class="invalid-feedback">
+          {{$message}}
+        </div>
+      @enderror
+
     </div>
   
     <div class="row mb-3">
