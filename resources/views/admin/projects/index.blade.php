@@ -6,14 +6,14 @@
 
 <table class="table table-dark table-hover">
   <thead>
-    <th>Titolo</th>
-    <th>Descrizione</th>
+    <th>Title</th>
+    <th>Description</th>
     <th>Slug</th>
-    <th>Immagine</th>
-    <th>Tipologia</th>
-    <th>Tecnologie</th>
+    <th>Thumbnail</th>
+    <th>Type</th>
+    <th>Technology</th>
     <th>Repo</th>
-    <th>Dettaglio</th>
+    <th>Details</th>
   </thead>
 
   <tbody>

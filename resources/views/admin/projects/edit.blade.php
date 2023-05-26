@@ -10,7 +10,7 @@
       @method('PUT')
   
     <div class="row mb-3">
-      <label for="title">Titolo</label>
+      <label for="title">Title</label>
       <input class="form-control @error('title') is-invalid @enderror" type="text" id="title" name="title" value="{{old('title') ?? $project->title}}">
       {{-- espongo messaggio di errore --}}
       @error('title')
@@ -21,7 +21,7 @@
     </div>
   
     <div class="row mb-3">
-      <label for="content">Descrizione</label>
+      <label for="content">Description</label>
       <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content">{{old('content') ?? $project->content}}</textarea>
       @error('content')
         <div class="invalid-feedback">
@@ -31,7 +31,7 @@
     </div>
   
     <div class="row mb-3">
-      <label for="thumb">Immagine di copertina</label>
+      <label for="thumb">Thumbnail</label>
       <input class="form-control @error('thumb') is-invalid @enderror" type="file" id="thumb" name="thumb">
       {{-- espongo messaggio di errore --}}
       @error('thumb')
@@ -55,9 +55,9 @@
     {{-- tipologia --}}
 
     <div class="row mb-3">
-      <label for="type_id">Tipologia</label>
+      <label for="type_id">Type</label>
       <select name="type_id" class="form-select @error('type_id') is-invalid @enderror" type="text" id="type_id" value="{{old('type_id')}}">
-        <option value="">Nessuna</option>
+        <option value="">None</option>
         @foreach($types as $type)
           <option value="{{$type->id}}" {{$type->id == old('type_id', $project->type_id) ? 'selected' : ''}}>{{$type->name}}</option>
         @endforeach
@@ -72,7 +72,7 @@
 
     {{-- tecnologie utilizzate --}}
     <div class="row mb-3 form-group">
-      <h6>Tecnologie</h6>
+      <h6>Technologies</h6>
 
       @foreach($technologies as $tech)
         <div class="form-check">
@@ -106,7 +106,7 @@
     </div>
   
     <div class="button-section mt-5">
-      <button class="btn btn-secondary" type="submit">Salva modifiche</button>
+      <button class="btn btn-secondary" type="submit">Save changes</button>
     </div>
     </form>
   </div>

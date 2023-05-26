@@ -2,15 +2,15 @@
 
 @section('content')
 
-<h3>Tutte le tecnologie</h3>
+<h3>All Technologies</h3>
 
 <table class="table table-dark table-hover">
   <thead>
-    <th>Nome</th>
-    <th>Colore</th>
+    <th>Name</th>
+    <th>Color</th>
     <th>Slug</th>
-    <th>N. Progetti</th>
-    <th>Dettaglio</th>
+    <th>N. Projects</th>
+    <th>Details</th>
   </thead>
 
   <tbody>
@@ -32,7 +32,7 @@
 </table>
 
 <button class="btn">
-  <a href="{{route('admin.technologies.create')}}">Aggiungi Tecnologia</a>
+  <a href="{{route('admin.technologies.create')}}">Add Technology</a>
 </button>
 
 @endsection

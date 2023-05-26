@@ -3,14 +3,14 @@
 @section('content')
 
 <div class="main">
-  <h1>Tutti i progetti realizzati con: "{{$technology->name}}"</h1>
+  <h1>All Projects made with: "{{$technology->name}}"</h1>
 
   @if(count($technology->projects) > 0)
     <table class="table table-dark">
       <thead>
-        <th>Titolo</th>
+        <th>Title</th>
         <th>Slug</th>
-        <th>Dettaglio</th>
+        <th>Details</th>
       </thead>
       <tbody>
         @foreach($technology->projects as $project)
@@ -25,17 +25,17 @@
       </tbody>
     </table>
   @else
-    <em>Nessun progetto realizzato con questa tecnologia</em>
+    <em>No projects made with this technology</em>
   @endif
 
   <div class="button-section">
     
       {{-- Aggiungo un bottone per modificare il progetto --}}
-      <button class="btn"><a href="{{route('admin.technologies.edit', $technology)}}">Modifica Tecnologia</a></button>
+      <button class="btn"><a href="{{route('admin.technologies.edit', $technology)}}">Edit Technology</a></button>
     
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-danger rounded-0" data-bs-toggle="modal" data-bs-target="#deleteTech">
-        Cancella Tipologia
+        Delete Technology
       </button>
     
       <!-- Modal -->
@@ -43,19 +43,19 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Cancella Tecnologia</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Technology</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              Sei sicuro di voler cancellare la tecnologia? 
+              Are you sure you want to delete this technology? 
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <form action="{{route('admin.technologies.destroy', $technology)}}" method="POST">
                 @csrf
                 @method('DELETE')
       
-                <button type="submit" class="btn btn-danger">Elimina</button>
+                <button type="submit" class="btn btn-danger">Delete</button>
               </form>
             </div>
           </div>
@@ -65,7 +65,7 @@
   </div>
 
   <div class="mt-5">
-    <a href="{{route('admin.technologies.index')}}">Torna all'elenco di tutte le tipologie</a>
+    <a href="{{route('admin.technologies.index')}}">Go back to all technologies</a>
   </div>
   
 </div>

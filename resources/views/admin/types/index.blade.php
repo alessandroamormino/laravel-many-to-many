@@ -2,15 +2,15 @@
 
 @section('content')
 
-<h3>Tutte le tipologie</h3>
+<h3>Typologies</h3>
 
 <table class="table table-dark table-hover">
   <thead>
-    <th>Nome</th>
+    <th>Name</th>
     <th>Slug</th>
-    <th>Descrizione</th>
-    <th>N. Progetti</th>
-    <th>Dettaglio</th>
+    <th>Description</th>
+    <th>N. Projects</th>
+    <th>Details</th>
   </thead>
 
   <tbody>
@@ -30,7 +30,7 @@
 </table>
 
 <button class="btn">
-  <a href="{{route('admin.types.create')}}">Aggiungi Tipologia</a>
+  <a href="{{route('admin.types.create')}}">Add Typology</a>
 </button>
 
 @endsection

@@ -7,37 +7,37 @@
 <div class="_container">
   <a href="{{route('admin.projects.index')}}" class="card-section">
       <div class="_card">
-          <h3>Progetti</h3>
+          <h3>Projects</h3>
           <img src="{{Vite::asset('resources/img/projects.png')}}" alt="Projects">
           <div class="text">
-              In questa sezione vengono riportati tutti i progetti presenti sul sito.
+              This section shows all the projects on the website.
               <br>
               <br>
-              Clicca sulla card per la gestione.
+              Click on the card for the management.
           </div>
       </div>
   </a>
   <a href="{{route('admin.types.index')}}" class="card-section">
       <div class="_card">
-          <h3>Tipologie</h3>
+          <h3>Types</h3>
           <img src="{{Vite::asset('resources/img/types.png')}}" alt="Types">
           <div class="text">
-              In questa sezione vengono riportate tutte le tipologie dei progetti.
+              This section shows all the types of projects on the website.
               <br>
               <br>
-              Clicca sulla card per la gestione.
+              Click on the card for the management.
           </div>
       </div>
   </a>
   <a href="{{route('admin.technologies.index')}}" class="card-section">
     <div class="_card">
-        <h3>Tecnologie</h3>
+        <h3>Technologies</h3>
         <img src="{{Vite::asset('resources/img/tech.png')}}" alt="Tech">
         <div class="text">
-            In questa sezione vengono riportate tutte le tecnologie usate nei progetti.
+            This section shows all the technologies used in the projects.
             <br>
             <br>
-            Clicca sulla card per la gestione.
+            Click on the card for the management.
         </div>
     </div>
   </a>
