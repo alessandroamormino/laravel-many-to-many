@@ -17,7 +17,7 @@
           <span class="badge rounded-pill mx-1" style="border: 1px solid {{$tech->color}}">{{$tech->name}}</span>
         @endforeach
       </div>
-      <div class="link">
+      <div class="links">
         <a href="{{$project->repo}}">Source Code</a>
       </div>
     </div>
