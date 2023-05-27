@@ -1,5 +1,79 @@
 @import '~bootstrap/scss/bootstrap';
 
+// Animation
+@keyframes btn1 {
+  from{
+    left: -200px;
+    opacity: 0;
+  }
+  to{
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes btn2 {
+  from{
+    right: -200px;
+    opacity: 0;
+  }
+  to{
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes blinker-btn {
+  from{
+    transform: scale(1);
+  }
+  to{
+    transform: scale(.95);
+  }
+}
+
+@keyframes first {
+  from{
+    top: -200px;
+    opacity: 0;
+  }
+  to{
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes second {
+  from{
+    left: 400px;
+    opacity: 0;
+  }
+  to{
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes third {
+  from{
+    bottom: -200px;
+    opacity: 0;
+  }
+  to{
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes blinker {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
 
 // Assets
 
@@ -15,6 +89,9 @@ body{
 }
 
 .explorer{
+  position: relative;
+  z-index: 1;
+  // position
   padding: 1em;
   width: 10vw;
   color: #fff;
@@ -196,6 +273,9 @@ main{
         bottom: 0;
         right: -.5em;
 
+        // animation
+        animation: blinker .8s ease infinite alternate-reverse 1s;
+
         width: .2rem;
         height: 1em;
         background-color: #80CBC4;
@@ -213,6 +293,10 @@ main{
           border: 1px solid #80CBC4;
         }
         ._btn-primary{
+          position: relative;
+          opacity: 0;
+          animation: btn1 .7s ease forwards 1s, blinker-btn .8s infinite alternate-reverse;
+          // animation
           background-color: #80CBC4;
           margin-right: 1em;
           transition: transform .4s ease;
@@ -221,6 +305,10 @@ main{
           }
         }
         ._btn-secondary{
+          position: relative;
+          opacity: 0;
+          animation: btn2 .7s ease forwards 1s;
+          // animation
           background-color: #2A2D3E;
           color: #fff;
           transition: background-color .4s ease;
@@ -258,6 +346,23 @@ main{
       top: 90px;
       right: 150px;
       width: 100px;
+    }
+  }
+  .homepage{
+    h1.first{
+      position: relative;
+      opacity: 0;
+      animation: first .7s ease forwards;
+    }
+    h1.second{
+      position: relative;
+      opacity: 0;
+      animation: second .7s ease forwards .4s;
+    }
+    h3.third{
+      position: relative;
+      opacity: 0;
+      animation: third .7s ease forwards .6s;
     }
   }
 }
