@@ -405,10 +405,13 @@ main.admin{
 // Login page
 .login{
   color: #000;
-  .container{
+  width: 100%;
+  height: calc(100% - 5em);
+  ._container{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: calc(100% - 70px - 2em - 10vw);
     // flex
     // height: calc(100vh - 4em);
     position: absolute;
