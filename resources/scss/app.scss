@@ -96,12 +96,28 @@ body{
   width: 10vw;
   color: #fff;
   background-color: #1A1D2A;
+  .drop{
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    i{
+      font-size: .8em;
+    }
+  }
   .files{
     padding: .5em;
+    .flex{
+      display: flex;
+      align-items: center;
+      gap: .5em;
+    }
   }
   h6{
     margin-bottom: 1em;
     color: #A6ACCE;
+  }
+  .explorer-img{
+    height: 1.2em;
   }
 }
 
