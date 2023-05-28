@@ -101,6 +101,8 @@ body{
   width: 10vw;
   color: #fff;
   background-color: #1A1D2A;
+
+  font-size: .9em;
   .drop{
     display: flex;
     align-items: center;
@@ -230,7 +232,7 @@ aside{
   flex-flow: column;
   justify-content: space-between;
   // flex
-  width: 70px;
+  width: 60px;
   height: 100vh;
   background-color: #1B1E2B;
   .top, .bottom{
@@ -272,11 +274,11 @@ main{
   }
   color: #fff;
   // tolgo la dimensione della sidebar dalla larghezza del main
-  width: calc(100% - 70px - 10vw);
+  width: calc(100% - 60px - 10vw);
   padding: 2em;
   overflow: auto;
   .container-centered{
-    width: calc(100% - 70px - 2em - 10vw);
+    width: calc(100% - 60px - 2em - 10vw);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -415,7 +417,7 @@ main.admin{
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    gap: 5em;
+    gap: 3em;
     padding: 3em;
   }
 
@@ -439,7 +441,7 @@ main.admin{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(100% - 70px - 2em - 10vw);
+    width: calc(100% - 60px - 2em - 10vw);
     // flex
     // height: calc(100vh - 4em);
     position: absolute;
@@ -509,7 +511,7 @@ main.admin{
 
   // Admin
   main.admin{
-    width: calc(100% - 70px);
+    width: calc(100% - 60px);
     font-size: .8em;
     ._container{
       flex-flow: column nowrap;
@@ -541,7 +543,7 @@ main.admin{
   // Main
 
   main.main{
-    width: calc(100% - 70px);
+    width: calc(100% - 60px);
     // homepage
     .homepage{
       font-size: .7em;
