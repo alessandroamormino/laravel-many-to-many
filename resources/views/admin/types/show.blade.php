@@ -6,25 +6,6 @@
   <h1>All projects of type: "{{$type->name}}"</h1>
 
   @if(count($type->projects) > 0)
-    {{-- <table class="table table-dark">
-      <thead>
-        <th>Titolo</th>
-        <th>Slug</th>
-        <th>Dettaglio</th>
-      </thead>
-      <tbody>
-        @foreach($type->projects as $project)
-          <tr>
-            <td>{{$project->title}}</td>
-            <td>{{$project->slug}}</td>
-            <td>
-              <a href="{{route('admin.projects.show', $project)}}"><i class="fa-solid fa-magnifying-glass"></i></a>
-            </td>
-          </tr>
-        @endforeach
-      </tbody>
-    </table> --}}
-
     <div class="cards">
       @foreach($type->projects as $project)
         <div class="card-projects">
@@ -40,7 +21,12 @@
               @endforeach
             </div>
             <div class="links">
-              <a href="{{$project->repo}}">Source Code</a>
+              @if($project->repo)
+                <a href="{{$project->repo}}" target="_blank">Source Code</a>
+              @endif
+              @if($project->website)
+                <a href="{{$project->website}}" target="_blank">Website</a>
+              @endif
               <a href="{{route('admin.projects.show', $project)}}">Details</a>
             </div>
           </div>
