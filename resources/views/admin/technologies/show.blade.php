@@ -34,7 +34,7 @@
       <button class="btn"><a href="{{route('admin.technologies.edit', $technology)}}">Edit Technology</a></button>
     
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-danger rounded-0" data-bs-toggle="modal" data-bs-target="#deleteTech">
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteTech">
         Delete Technology
       </button>
     

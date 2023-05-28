@@ -59,7 +59,7 @@
       <button class="btn"><a href="{{route('admin.types.edit', $type)}}">Edit Type</a></button>
     
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-danger rounded-0" data-bs-toggle="modal" data-bs-target="#deleteType">
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteType">
         Delete Type
       </button>
     

@@ -10,7 +10,7 @@
   <div class="container-centered">
     <div class="info">
       <h1 class="first">Hi,</h1> <h1 class="second">I'm Alessandro Amormino</h1>
-      <h3 class="third">Full Stack Web Developer</h3>
+      <h3 class="third">Full Stack Web <span>Developer</span></h3>
       <div class="buttons">
         <button class="_btn _btn-primary">View works</button>
         <button class="_btn _btn-secondary">Contact me</button>

@@ -18,7 +18,7 @@
         @endforeach
       </div>
       <div class="links">
-        <a href="{{$project->repo}}">Source Code</a>
+        <a href="{{$project->repo}}" target="_blank">Source Code</a>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
   
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteProject">
-      Cancella Progetto
+      Delete Project
     </button>
   </div>
 
