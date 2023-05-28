@@ -98,7 +98,8 @@ body{
   z-index: 1;
   // position
   padding: 1em;
-  width: 10vw;
+  // width: 10vw;
+  width: 200px;
   color: #fff;
   background-color: #1A1D2A;
 
@@ -274,11 +275,11 @@ main{
   }
   color: #fff;
   // tolgo la dimensione della sidebar dalla larghezza del main
-  width: calc(100% - 60px - 10vw);
+  width: calc(100% - 60px - 200px);
   padding: 2em;
   overflow: auto;
   .container-centered{
-    width: calc(100% - 60px - 2em - 10vw);
+    width: calc(100% - 60px - 2em - 200px);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -425,7 +426,7 @@ main.admin{
     .cards{
       display: flex;
       flex-flow: row wrap;
-      gap: 1em;
+      gap: 1.5em;
       // flex
       padding: 2em 0;
     }
@@ -441,7 +442,7 @@ main.admin{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(100% - 60px - 2em - 10vw);
+    width: calc(100% - 60px - 2em - 200px);
     // flex
     // height: calc(100vh - 4em);
     position: absolute;
