@@ -90,6 +90,17 @@
         </div>
       @enderror
     </div>
+
+    <div class="row mb-3">
+      <label for="website">Website</label>
+      <input class="form-control @error('website') is-invalid @enderror" type="text" id="website" name="website" value="{{old('website')}}">
+      {{-- espongo messaggio di errore --}}
+      @error('website')
+        <div class="invalid-feedback">
+          {{$message}}
+        </div>
+      @enderror
+    </div>
   
     <div class="button-section mt-5">
       <button class="btn btn-secondary" type="submit">Add!</button>

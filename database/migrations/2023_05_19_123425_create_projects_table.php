@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('slug', 200);
             $table->text('thumb')->nullable();
             $table->string('languages')->nullable();
-            $table->string('repo');
+            $table->string('repo')->nullable();
             $table->timestamps();
         });
     }

@@ -77,6 +77,7 @@ class ProjectController extends Controller
         // gli passo anche il type_id che proviene dalla select dentro al form 
         $newProject->type_id = $formData['type_id'];
         $newProject->repo = $formData['repo'];
+        $newProject->website = $formData['website'];
 
         // salvo il record
         $newProject->save();
@@ -194,7 +195,6 @@ class ProjectController extends Controller
             'thumb' => 'nullable|image|max:4096',    
             'type_id' => 'nullable|exists:types,id',
             'technologies' => 'exists:technologies,id',
-            'repo' => 'required',
         ], [
             // inserisco i messaggi personalizzati per ogni tipologia di errore per ogni campo
             'title.required' => "E' necessario inserire il titolo",
@@ -206,7 +206,6 @@ class ProjectController extends Controller
             'thumb.max' => "La dimensione dell'immagine è troppo grande. ",
             // 'type_id.exists' => 'La tipologia deve essere presente',
             'technologies.exists' => 'La tegnologia deve essere presente',
-            'repo.required' => "E' necessario inserire la repository",
 
         ])->validate();
 

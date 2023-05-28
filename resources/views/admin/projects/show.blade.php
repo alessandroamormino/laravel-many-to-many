@@ -18,7 +18,12 @@
         @endforeach
       </div>
       <div class="links">
-        <a href="{{$project->repo}}" target="_blank">Source Code</a>
+        @if($project->repo)
+          <a href="{{$project->repo}}" target="_blank">Source Code</a>
+        @endif
+        @if($project->website)
+          <a href="{{$project->website}}" target="_blank">Website</a>
+        @endif
       </div>
     </div>
   </div>

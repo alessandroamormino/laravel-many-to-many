@@ -13,6 +13,7 @@
     <th>Type</th>
     <th>Technology</th>
     <th>Repo</th>
+    <th>Website</th>
     <th>Details</th>
   </thead>
 
@@ -35,6 +36,7 @@
         @endphp
       </td>
       <td>{{$project->repo}}</td>
+      <td>{{$project->website}}</td>
       <td class="colored"><a href="{{route('admin.projects.show', $project->slug)}}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
     </tr>
     @endforeach
