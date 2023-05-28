@@ -193,6 +193,10 @@ a{
   }
 }
 
+.hidden{
+  display: none;
+}
+
 // Active links in nav
 ._active svg{
   fill: #fff;
