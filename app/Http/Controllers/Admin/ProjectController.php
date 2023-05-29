@@ -136,14 +136,16 @@ class ProjectController extends Controller
         $this->validation($request);
 
         if($request->hasFile('thumb')){
-            // se il progetto ha già un'immagine allora la elimino
-            Storage::delete($project->thumb);
-        }
+            if($project->thumb){
+                // se il progetto ha già un'immagine allora la elimino
+                Storage::delete($project->thumb);
+            }
 
-        // salvo la nuova immagine di copertina
-        $path = Storage::put('project_images', $request->thumb);
-        // modifico il campo thumb in modo che contenga solo la path
-        $formData['thumb'] = $path;
+            // salvo la nuova immagine di copertina
+            $path = Storage::put('project_images', $request->thumb);
+            // modifico il campo thumb in modo che contenga solo la path
+            $formData['thumb'] = $path;
+        }
 
         // aggiorno i dati con la proprietà fillable definita nel Model
         // tranne per lo slug che creerò sulla base del titolo del progetto
